@@ -1,0 +1,23 @@
+﻿<Window x:Class="DataBindingSample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DataBindingSample"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <StackPanel>
+        <Label>Price</Label>
+        <TextBlock Text="{Binding Price}"/>
+        <Label>Name</Label>
+        <TextBlock Text="{Binding ProductName}"/>
+        <Button Content="Produktfarbe" Background="{Binding Color}"></Button>
+        <CheckBox IsChecked="{Binding Expired}">Ausgelaufen</CheckBox>
+        <Slider Value="{Binding Price}" Minimum="0" Maximum="100"></Slider>
+        <Button Click="Button_Click">für Debug</Button>
+        <Label>Ust</Label>
+        <TextBox Text="{Binding Ust, UpdateSourceTrigger=PropertyChanged}"/>
+        <Label>Brutto</Label>
+        <TextBlock Text="{Binding Brutto}" />
+    </StackPanel>
+</Window>

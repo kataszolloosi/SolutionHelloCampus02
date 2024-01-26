@@ -1,0 +1,45 @@
+﻿<Window x:Class="TicketBestellung.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TicketBestellung"
+        mc:Ignorable="d"
+        Title="{Binding AusgewaehlteTicketArt}" Height="450" Width="800">
+    <StackPanel>
+        <Label>Variante1</Label>
+        <ComboBox ItemsSource="{Binding Ticketarten}" SelectedItem="{Binding AusgewaehlteTicketArt}"/>
+        <Grid Background="{Binding Color}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0">Price</Label>
+            <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Price}" />
+
+            <Label Grid.Row="1" Grid.Column="0">Anzahl:</Label>
+            <Slider Grid.Row="1" Grid.Column="1" Value="{Binding Number}" Minimum="0" Maximum="20" TickFrequency="1" IsSnapToTickEnabled="True" />
+
+            <Label Grid.Row="2" Grid.Column="0">Summe</Label>
+            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Summe}" />
+        </Grid>
+        <Label></Label>
+        <Label>Variante2</Label>
+        <UniformGrid Rows="2" Columns="2" Background="{Binding Color}">
+            <Label>Price</Label>
+            <TextBox Text="{Binding Price}" />
+
+            <Label >Anzahl:</Label>
+            <Slider  Value="{Binding Number}" Minimum="0" Maximum="20" TickFrequency="1" IsSnapToTickEnabled="True" />
+
+            <Label >Summe</Label>
+            <TextBlock Text="{Binding Summe}" />
+        </UniformGrid>
+    </StackPanel>
+</Window>

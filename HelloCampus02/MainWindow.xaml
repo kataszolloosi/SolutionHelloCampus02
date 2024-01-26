@@ -1,0 +1,68 @@
+﻿<Window x:Class="HelloCampus02.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HelloCampus02"
+        mc:Ignorable="d"
+        Title="Hello WPF" Height="450" Width="800">
+    <StackPanel>
+        <ListBox ItemsSource="{Binding }"></ListBox>
+        <Button>Hello World</Button>
+        <Button>Goodbye World</Button>
+        <CheckBox>Important</CheckBox>
+        <Label>das ist eine Beschriftung</Label>
+        <Button Background="Gold" FontStyle="Italic" Content="Auch Hello"></Button>
+        <Button>
+            <Button.Content>
+                <StackPanel>
+                    <Label>Hello Schmetterling</Label>
+                    <Image Height="50" Source="butterfly.jpg"></Image>
+                </StackPanel>
+            </Button.Content>
+        </Button>
+        <RadioButton>Bar</RadioButton>
+        <RadioButton>Kreditkarte</RadioButton>
+        <RadioButton>Erlagschein</RadioButton>
+        <RepeatButton ToolTip="bitte maustaste gedrückt halten" Click="RepeatButton_Click">aktuelle Uhrzeit anzeigen</RepeatButton>
+        <ToggleButton>Geheim</ToggleButton>
+
+        <Expander Header="Expander Header">
+            <Expander.Content>
+                <StackPanel>
+                    <RadioButton>Bar</RadioButton>
+                    <RadioButton>Kredit</RadioButton>
+                    <RadioButton>Erlagschein</RadioButton>
+                </StackPanel>
+            </Expander.Content>
+        </Expander>
+
+        <GroupBox Header="GroupBox Sample" Margin="10" Padding="10">
+            <StackPanel>
+                <TextBlock>First name:</TextBlock>
+                <TextBox />
+                <TextBlock>Last name:</TextBlock>
+                <TextBox />
+                <Button Margin="0,20">Add User</Button>
+            </StackPanel>
+        </GroupBox>
+
+        <ListBox SelectionChanged="onChange" >
+            <ListBox.Items>
+            <ListBoxItem>Burgenland</ListBoxItem>
+            <ListBoxItem>Steiermark</ListBoxItem>
+            <ListBoxItem>Kärnten</ListBoxItem>
+            </ListBox.Items>
+        </ListBox>
+
+        <ComboBox SelectionChanged="colorChange">
+            <ComboBox.Items>
+                    <ComboBoxItem>Red</ComboBoxItem>
+                    <ComboBoxItem>Green</ComboBoxItem>
+                    <ComboBoxItem>Blue</ComboBoxItem>
+                </ComboBox.Items>
+        </ComboBox>
+
+        <ToggleButton Name="toggleButton" Click="toggleColorChange">ToggleButton</ToggleButton>
+    </StackPanel>
+</Window>
