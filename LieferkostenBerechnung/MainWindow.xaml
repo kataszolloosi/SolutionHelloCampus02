@@ -5,8 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LieferkostenBerechnung"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="{Binding Ausgabetext}" Height="400" Width="600">
+    <StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Label Content="Laender"/>
+            <ComboBox ItemsSource="{Binding Laender}" SelectedItem="{Binding AusgewLand}"/>
+            <Image Height="50" Source="{Binding Flagge}"/>
+            <TextBlock><Run Text="Kosten"/></TextBlock>
+            <TextBox Text="{Binding KostenProKilo}"/>
+        </StackPanel>
+        <StackPanel>
+            <Label Content="GesamtGewicht"/>
+            <TextBox Text="{Binding GesamtGewicht}"/>
+            <Slider Value="{Binding GesamtGewicht}" Minimum="0" Maximum="100" IsSnapToTickEnabled="True" TickFrequency="1" AutoToolTipPlacement="TopLeft"/>
+            <RepeatButton Click="RepeatButton_Click" Content="-"/>
+            <RepeatButton Click="RepeatButton_Click" Content="+"/>
+        </StackPanel>
+        <CheckBox IsChecked="{Binding isExpress}"></CheckBox>
+        <TextBlock Text="{Binding Ausgabetext}"/>
+        <Button Click="Button_Click">Add new Country</Button>
+        <ListBox ItemsSource="{Binding ObsListeLaender}" SelectedItem="{Binding AusgewaehltesLandObject}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Bezeichnung}"></TextBlock>
+                        <Image Source="{Binding Flagge}" Width="50"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <TextBlock Text="{Binding AusgabeVariante2}"></TextBlock>
+    </StackPanel>
 </Window>
