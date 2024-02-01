@@ -21,12 +21,14 @@ namespace KinoFilmVerwaltung
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        private List<KinoFilm> films;
         public MainWindow()
         {
             InitializeComponent();
 
-            KinoFilm film = new KinoFilm(); 
-            this.DataContext = film;
+            films = new List<KinoFilm>(); 
+            this.DataContext = films;
         }
     }
 }

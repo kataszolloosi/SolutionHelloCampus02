@@ -20,29 +20,38 @@ namespace KinoFilmVerwaltung.Models
             }
         }
 
-        public string Titel { get; set; }
-        public string Genre { get; set; }
-        public string Originalsprache { get; set; }
-        public double Dauer { get; set; }
+        private string _Titel;
 
-        public override string ToString()
+        public string Titel
         {
-            return base.ToString();
+            get { return _Titel; }
+            set { _Titel = value; }
         }
 
+        private string _Genre;
 
-        public KinoFilm()
+        public string Genre
         {
-            kinoFilms = new List<KinoFilm>()
-            {
-                new KinoFilm() {Titel = "Film1", Genre = "Genre1", Originalsprache = "Sprache1", Dauer = 1.5},
-                new KinoFilm() {Titel = "Film2", Genre = "Genre2", Originalsprache = "Sprache2", Dauer = 2.5},
-                new KinoFilm() {Titel = "Film3", Genre = "Genre3", Originalsprache = "Sprache3", Dauer = 3.5}
-            };
+            get { return _Genre; }
+            set { _Genre = value; }
         }
 
+        private string _Originalsprache;
 
-        public List<KinoFilm> kinoFilms { get; set; }
+        public string Originalsprache
+        {
+            get { return _Originalsprache; }
+            set { _Originalsprache = value; }
+        }
+
+        private double _Dauer;
+
+        public double Dauer
+        {
+            get { return _Dauer; }
+            set { _Dauer = value; }
+        }
+
 
         public string Ausgabe { get; set; }
 
