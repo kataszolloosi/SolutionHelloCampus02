@@ -5,16 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KinoFilmVerwaltung"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="{Binding Titel}" Height="450" Width="800">
     <Grid>
-        <ListBox ItemsSource="{Binding kinoFilms}" SelectedItem="{Binding AusgewaehlteFilm}">
-            <ListBox.ItemTemplate>
+        <ComboBox ItemsSource="{Binding films}" SelectedItem="{Binding SelectedKinoFilm}">
+            <ComboBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel>
+                    <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{Binding Titel}"></TextBlock>
+                        <TextBlock Text="{Binding Genre}"></TextBlock>
                     </StackPanel>
                 </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <TextBlock Text="{Binding SelectedKinofilm.Titel}"/>
+        
     </Grid>
 </Window>

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace KinoFilmVerwaltung.Models
 {
-    internal class KinoFilm :INotifyPropertyChanged
+    internal class KinofilmViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -20,14 +20,18 @@ namespace KinoFilmVerwaltung.Models
             }
         }
 
-        private int _FilmId;
 
-        public int FilmId
+        public ObservableCollection<KinoFilm> films { get; set; }
+
+        private KinoFilm _SelectedKinoFilm;
+
+        public KinoFilm SelectedKinoFilm
         {
-            get { return _FilmId; }
-            set { _FilmId = value; }
+            get { return _SelectedKinoFilm; }
+            set { _SelectedKinoFilm = value; 
+                NotifyGUI("SelectedKinoFilm");
+            }
         }
-
 
         private string _Titel;
 
@@ -37,20 +41,12 @@ namespace KinoFilmVerwaltung.Models
             set { _Titel = value; }
         }
 
-        private string _Genre;
-
-        public string Genre
+        public void AddKinoFilm(KinoFilm kinoFilm)
         {
-            get { return _Genre; }
-            set { _Genre = value; }
+            films.Add(kinoFilm);
+            Titel = "Es sind " + kinoFilm.Titel + " Filme in der Liste";
+            NotifyGUI("Titel");
         }
 
-        private string _Bild;
-
-        public string Bild
-        {
-            get { return _Bild; }
-            set { _Bild = value; }
-        }
     }
 }
